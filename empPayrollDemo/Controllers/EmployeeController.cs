@@ -70,11 +70,11 @@ namespace empPayrollDemo.Controllers
 
         }
 
-         public ActionResult EmployeeList()
-         {
-             List<EmployeeViewModel> list = GetAllEmployee();
-             return View(list);
-         }
+        public ActionResult EmployeeList()
+        {
+            List<EmployeeViewModel> list = GetAllEmployee();
+            return View(list);
+        }
 
         public List<EmployeeViewModel> GetAllEmployee()
         {

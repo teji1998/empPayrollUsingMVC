@@ -1,6 +1,6 @@
 ﻿.toolbar {
     padding: 15px 0;
-    background-color: #ffffff;
+    background-color: antiquewhite;
     display: flex;
     padding-left: 2%;
     padding-right: 2%;
@@ -22,7 +22,7 @@
 }
 
 .emp-payroll-header {
-    color: #42515f;
+    color: darkviolet;
 }
 
 .emp-name {

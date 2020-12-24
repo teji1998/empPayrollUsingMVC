@@ -9,7 +9,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-transform: capitalize;
     opacity: 1;
-    background-color: #919879;
+    background-color: darkslateblue;
     color: white;
     text-align: center;
     margin-top: 20px;
@@ -43,7 +43,7 @@
 
 .text {
     font-size: 16px;
-    color: #42515f;
+    color:darkviolet;
     opacity: 1;
     font-family: Roboto;
 }
@@ -109,7 +109,7 @@ button {
 
 .submitButton {
     border: none;
-    background-color: #f5f5f5;
+    background-color: green;
     margin-right: 30px;
 }
 
