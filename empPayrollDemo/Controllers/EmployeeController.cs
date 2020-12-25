@@ -102,6 +102,65 @@ namespace empPayrollDemo.Controllers
                 throw e;
             }
         }
+
+        public ActionResult Edit(EmployeeViewModel data)
+        {
+            RegisterEmpRequestModel employee = new RegisterEmpRequestModel
+            {
+                EmpId = data.EmpId,
+                Name = data.Name,
+                Gender = data.Gender,
+                Department = data.Department,
+                //used tostring method to convert int to string
+                SalaryId = data.SalaryId.ToString(),
+                StartDate = data.StartDate,
+                Description = data.Description
+            };
+            return View(employee);
+        }
+
+        public ActionResult EditEmployee(RegisterEmpRequestModel employee)
+        {
+            bool result = EditEmployeeService(employee);
+            if (result == true)
+            {
+                List<EmployeeViewModel> list = GetAllEmployee();
+                return View("EmployeeList", list);
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+        public bool EditEmployeeService(RegisterEmpRequestModel employee)
+        {
+            try
+            {
+                int departmentId = db.Departments.Where(x => x.DepartmentName == employee.Department).Select(x => x.DepartmentId).FirstOrDefault();
+
+                Employee emp = db.Employees.Find(employee.EmpId); //searching employee using employee id
+                emp.Name = employee.Name;
+                emp.Gender = employee.Gender;
+                emp.SalaryId = Convert.ToInt32(employee.SalaryId);
+                emp.StartDate = employee.StartDate;
+                emp.Description = employee.Description;
+                emp.DepartmentId = departmentId;
+
+                int result = db.SaveChanges();
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
 
